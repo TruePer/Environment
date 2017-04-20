@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8.12)
 project(env)
 
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Build type")
+    set(CMAKE_BUILD_TYPE "Release")
     message(STATUS "Build type is not set. ${CMAKE_BUILD_TYPE} build type will be used.")
 endif()
 

@@ -15,14 +15,16 @@ endif()
 
 add_custom_command(
     OUTPUT ${BOOST_WORKING_DIR}/${BOOST_BUILD_COMMAND}
-    COMMAND ${CONFIGURE_COMMAND}
+    COMMAND ${BOOST_WORKING_DIR}/${CONFIGURE_COMMAND}
     WORKING_DIRECTORY ${BOOST_WORKING_DIR}
     COMMENT "Configure Boost"
 )
 
+message("BOOST_WORKING_DIR: ${BOOST_WORKING_DIR}")
+
 add_custom_target(BoostBuild ALL
-    COMMAND ${BOOST_BUILD_COMMAND} headers
-    COMMAND ${BOOST_BUILD_COMMAND} install
+    COMMAND ${BOOST_WORKING_DIR}/${BOOST_BUILD_COMMAND} headers
+    COMMAND ${BOOST_WORKING_DIR}/${BOOST_BUILD_COMMAND} install
         "--with-thread"
         "--with-system"
         "--with-chrono"
