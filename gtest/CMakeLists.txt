@@ -11,7 +11,7 @@ add_custom_target(ConfigureRelease
         ${GENERATOR_PARAMETER}
         "${CMAKE_CURRENT_SOURCE_DIR}/build"
         "-DCMAKE_BUILD_TYPE=Release"
-        "-DCMAKE_INSTALL_PREFIX=${TARGET_DIRECTORY}/gtest"
+        "-DCMAKE_INSTALL_PREFIX=${TARGET_DIRECTORY}/gtest/${CMAKE_SYSTEM_NAME}"
     )
 
 add_custom_target(BuildRelease
@@ -24,7 +24,7 @@ add_custom_target(ConfigureDebug
         ${GENERATOR_PARAMETER}
         "${CMAKE_CURRENT_SOURCE_DIR}/build"
         "-DCMAKE_BUILD_TYPE=Debug"
-        "-DCMAKE_INSTALL_PREFIX=${TARGET_DIRECTORY}/gtest"
+        "-DCMAKE_INSTALL_PREFIX=${TARGET_DIRECTORY}/gtest/${CMAKE_SYSTEM_NAME}"
         DEPENDS BuildRelease
     )
 
@@ -33,5 +33,5 @@ add_custom_target(BuildDebug ALL
     DEPENDS ConfigureDebug
     )
 
-add_dependencies(install BuildDebug)
+#add_dependencies(install BuildDebug)
 

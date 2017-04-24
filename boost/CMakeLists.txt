@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12)
 
-set(BOOST_BUILD_PREFIX "${TARGET_DIRECTORY}/boost")
+set(BOOST_BUILD_PREFIX "${TARGET_DIRECTORY}/boost/${CMAKE_SYSTEM_NAME}")
 set(BOOST_WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 if(UNIX)
@@ -20,8 +20,6 @@ add_custom_command(
     COMMENT "Configure Boost"
 )
 
-message("BOOST_WORKING_DIR: ${BOOST_WORKING_DIR}")
-
 add_custom_target(BoostBuild ALL
     COMMAND ${BOOST_WORKING_DIR}/${BOOST_BUILD_COMMAND} headers
     COMMAND ${BOOST_WORKING_DIR}/${BOOST_BUILD_COMMAND} install
@@ -37,4 +35,4 @@ add_custom_target(BoostBuild ALL
     COMMENT "Build Boost"
 )
 
-add_dependencies(install BoostBuild)
+#add_dependencies(install BoostBuild)

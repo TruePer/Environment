@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 
 set(GLOG_SOURCES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
-set(GLOG_BUILD_PREFIX "${TARGET_DIRECTORY}/glog")
+set(GLOG_BUILD_PREFIX "${TARGET_DIRECTORY}/glog/${CMAKE_SYSTEM_NAME}")
 set(GLOG_WORKING_DIR ${CMAKE_CURRENT_BINARY_DIR})
 
 if(UNIX)
@@ -66,4 +66,4 @@ else()
     message(FATAL_ERROR "Unsupported platform")
 endif()
 
-add_dependencies(install GlogInstall)
+#add_dependencies(install GlogInstall)

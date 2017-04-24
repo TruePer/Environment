@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.8.12)
+
+set(CMAKE_MODULE_PATH "${BUILD_ENVIRONMENT_ROOT}/cmake")
+
+if(EXISTS "${BUILD_ENVIRONMENT_ROOT}/boost")
+    set(BOOST_ROOT "${BUILD_ENVIRONMENT_ROOT}/boost/${CMAKE_SYSTEM_NAME}")
+endif()
+
+if(EXISTS "${BUILD_ENVIRONMENT_ROOT}/glog")
+    set(GLOG_ROOT "${BUILD_ENVIRONMENT_ROOT}/glog/${CMAKE_SYSTEM_NAME}")
+endif()
